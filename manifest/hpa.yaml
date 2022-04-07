@@ -20,7 +20,6 @@ spec:
         periodSeconds: 60
       selectPolicy: Min
     scaleUp:
-      stabilizationWindowSeconds: 120
       policies:
       - type: Percent
         value: 80
