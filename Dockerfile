@@ -4,7 +4,8 @@ RUN go get github.com/gomodule/redigo/redis
 RUN go get google.golang.org/appengine
 COPY . .
 RUN ls -l
-RUN go build .
+RUN export GO111MODULE=auto
+RUN go build . -o /golang-redis
 RUN ls -l
 
 # DEPLOY 
