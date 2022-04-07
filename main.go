@@ -41,6 +41,8 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		log.Fatal(err)
 	}
 	fmt.Fprintf(w, "%s", out)
+
+	// Redis
 	redisConn := redisPool.Get()
 	defer redisConn.Close()
 
@@ -50,7 +52,8 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, msg, http.StatusInternalServerError)
 		return
 	}
-	fmt.Fprintf(w, "Count: %d", count)
+	fmt.Fprintf(w, "From redis Count: %d", count)
+
 }
 func connRedis() {
 
