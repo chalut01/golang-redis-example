@@ -9,7 +9,7 @@ RUN go build -o /golang-redis .
 RUN ls -l
 
 # DEPLOY 
-FROM alpine:3.14.6
+FROM ubuntu:18.04
 WORKDIR /
 COPY --from=build /golang-redis /golang-redis
 EXPOSE 8080
