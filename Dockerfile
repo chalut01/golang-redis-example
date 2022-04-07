@@ -4,7 +4,6 @@ RUN go get github.com/gomodule/redigo/redis
 RUN go get google.golang.org/appengine
 COPY . .
 RUN ls -l
-RUN go mod init
 RUN go build .
 RUN ls -l
 
