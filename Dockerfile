@@ -13,5 +13,5 @@ FROM alpine:3.14.6
 WORKDIR /
 COPY --from=build /golang-redis /golang-redis
 EXPOSE 8080
-USER nonroot:nonroot
+USER root
 ENTRYPOINT ["/golang-redis"]
