@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: api
+  name: golang-redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+       app: golang-redis
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: golang-redis
+    spec:
+      containers:
+      - image: wdsregistry1.beebuddy.net:9900/golang-redis-img:1.0.2
+        name: golang-redis
+        resources: {}
+      imagePullSecrets:
+      - name: regcred
+      restartPolicy: Always
+status: {}

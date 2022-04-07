@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  namespace: dev-jom
+  name: golang-redis
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/affinity: "cookie"
+    nginx.ingress.kubernetes.io/session-cookie-name: "route"
+    nginx.ingress.kubernetes.io/session-cookie-expires: "172900"
+    nginx.ingress.kubernetes.io/session-cookie-max-age: "172900"
+spec:
+  rules:
+  - host: golang-redis.beebuddy.net
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: golang-redis
+          servicePort: 80

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: api
+  name: golang-redis
+spec:
+  type:
+  selector:
+    app: golang-redis
+  ports:
+    - port: 80
+      targetPort: 8080
+status:
+  loadBalancer: {}

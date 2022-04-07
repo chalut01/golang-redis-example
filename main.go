@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 	"os"
 
 	"github.com/gomodule/redigo/redis"
-
 	"google.golang.org/appengine"
 )
 
@@ -35,6 +35,7 @@ func main() {
 	}
 
 	http.HandleFunc("/", handle)
+	log.Fatal(http.ListenAndServe(":8080", nil))
 	appengine.Main()
 }
 
