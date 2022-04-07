@@ -4,7 +4,6 @@ metadata:
   namespace: redis
   name: golang-redis
 spec:
-  type:
   selector:
     app: golang-redis
   ports:
