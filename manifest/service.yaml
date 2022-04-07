@@ -4,6 +4,7 @@ metadata:
   namespace: redis
   name: golang-redis
 spec:
+  type: ClusterIP
   selector:
     app: golang-redis
   ports:
