@@ -1,4 +1,4 @@
-FROM golang:1.16-buster AS build
+FROM golang:1.18.0 AS build
 WORKDIR /app
 RUN go get github.com/gomodule/redigo/redis
 RUN go get google.golang.org/appengine
