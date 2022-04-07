@@ -1,7 +1,7 @@
 FROM golang:1.18.0 AS build
 WORKDIR /app
-RUN go install github.com/gomodule/redigo/redis
-RUN go install google.golang.org/appengine
+RUN go install github.com/gomodule/redigo/redis@latest
+RUN go install google.golang.org/appengine@latest
 COPY . .
 RUN ls -l
 RUN export GO111MODULE=auto
