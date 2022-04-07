@@ -5,6 +5,7 @@ RUN go get google.golang.org/appengine
 COPY . .
 RUN ls -l
 RUN export GO111MODULE=auto
+RUN go mod init
 RUN go build . -o /golang-redis
 RUN ls -l
 
