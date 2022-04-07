@@ -15,10 +15,10 @@ spec:
         app: golang-redis
     spec:
       containers:
-      - image: wdsregistry1.beebuddy.net:9900/golang-redis-img:1.0.2
+      - image: chalut/golang-redis:latest
         name: golang-redis
         resources: {}
       imagePullSecrets:
-      - name: regcred
+      - name: dockersecret
       restartPolicy: Always
 status: {}
