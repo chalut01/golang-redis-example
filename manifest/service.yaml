@@ -4,9 +4,7 @@ metadata:
   namespace: redis
   name: golang-redis
 spec:
-  type:
-  selector:
-    app: golang-redis
+  clusterIP: None
   ports:
     - port: 80
       targetPort: 8080
