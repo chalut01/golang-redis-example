@@ -1,16 +1,14 @@
-apiVersion: autoscaling/v1
+apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
   name: golang-redis
-  namespace: redis
 spec:
-  maxReplicas: 10
-  minReplicas: 1
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
     name: golang-redis
-  targetCPUUtilizationPercentage: 70
+  minReplicas: 1
+  maxReplicas: 10
   behavior:
     scaleDown:
       policies:
@@ -21,3 +19,20 @@ spec:
         value: 2
         periodSeconds: 60
       selectPolicy: Min
+    scaleUp:
+      stabilizationWindowSeconds: 120
+      policies:
+      - type: Percent
+        value: 80
+        periodSeconds: 60
+      - type: Pods
+        value: 2
+        periodSeconds: 60
+      selectPolicy: Max
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 70
