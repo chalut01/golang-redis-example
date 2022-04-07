@@ -17,6 +17,11 @@ spec:
       containers:
       - image: chalut/golang-redis:latest
         name: golang-redis
+        env:
+          - name: REDIS_ADDR
+            value: "redis"
+          - name: REDIS_PASSWORD
+            value: "password"
         resources: {}
       imagePullSecrets:
       - name: dockersecret
