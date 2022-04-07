@@ -5,7 +5,7 @@ RUN ls -l
 RUN go env -w GO111MODULE=auto
 RUN go get github.com/gomodule/redigo/redis
 RUN go get google.golang.org/appengine
-RUN go build . 
+RUN go build . -o /golang-redis
 RUN ls -l
 
 # DEPLOY 
