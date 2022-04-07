@@ -33,7 +33,6 @@ func main() {
 		},
 		// TODO: Tune other settings, like IdleTimeout, MaxActive, MaxIdle, TestOnBorrow.
 	}
-
 	http.HandleFunc("/", handle)
 	log.Fatal(http.ListenAndServe(":8080", nil))
 	appengine.Main()
@@ -54,6 +53,5 @@ func handle(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, msg, http.StatusInternalServerError)
 		return
 	}
-
 	fmt.Fprintf(w, "Count: %d", count)
 }
