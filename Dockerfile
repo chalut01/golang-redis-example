@@ -1,11 +1,11 @@
 FROM golang:1.17.0 AS build
 WORKDIR /app
-RUN go get github.com/gomodule/redigo/redis
-RUN go get google.golang.org/appengine
 COPY . .
 RUN ls -l
 RUN go env -w GO111MODULE=auto
-RUN go build . -o /golang-redis
+RUN go get github.com/gomodule/redigo/redis
+RUN go get google.golang.org/appengine
+RUN go build . 
 RUN ls -l
 
 # DEPLOY 
