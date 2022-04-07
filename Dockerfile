@@ -3,6 +3,7 @@ WORKDIR /app
 RUN go get github.com/gomodule/redigo/redis
 RUN go get google.golang.org/appengine
 COPY . .
+RUN ls -l
 RUN go build -o /golang-redis
 
 # DEPLOY 
