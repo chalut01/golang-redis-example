@@ -12,5 +12,5 @@ RUN ls -l
 FROM ubuntu:18.04
 WORKDIR /
 COPY --from=build /golang-redis /golang-redis
-EXPOSE 8080
+EXPOSE 80
 ENTRYPOINT ["/golang-redis"]

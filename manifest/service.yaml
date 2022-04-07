@@ -7,6 +7,6 @@ spec:
   clusterIP: None
   ports:
     - port: 80
-      targetPort: 8080
+      targetPort: 80
 status:
   loadBalancer: {}
