@@ -13,14 +13,14 @@ spec:
       labels:
         app: golang-redis
     spec:
+      hostAliases:
+          - ip: "192.168.64.2"
+            hostnames:
+              - "redis.beebuddy.net"
       containers:
       - image: chalut/golang-redis:latest
         imagePullPolicy: Always
         name: golang-redis
-        hostAliases:
-          - ip: "192.168.64.2"
-            hostnames:
-              - "redis.beebuddy.net"
         env:
           - name: REDIS_ADDR
             value: "redis.beebuddy.net"
