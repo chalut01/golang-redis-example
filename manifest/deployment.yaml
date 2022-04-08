@@ -23,7 +23,7 @@ spec:
         name: golang-redis
         env:
           - name: REDIS_ADDR
-            value: "redis.beebuddy.net"
+            value: "redis.beebuddy.net:80"
           - name: REDIS_PASSWORD
             value: "password"
         resources:
